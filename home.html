@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="./IMG/favicon.ico">
+
+  <title>PowerGST</title>
+
+  <!-- bootstrap-css -->
+  <link href="./CSS/bootstrap.mini.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="./CSS/style.css" rel="stylesheet" />
+  <link href="./CSS/EwayBillStyle.mini.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/menustyles.mini.css">
+
+  <!-- font-awesome icons -->
+  <link rel="stylesheet" href="./CSS/font.css">
+  <link href="./CSS/font.mini.css" rel="stylesheet" />
+  <link href="./CSS/font-awesome.mini.css" rel="stylesheet" />
+
+  <link href="./CSS/basictable.mini.css" rel="stylesheet" />
+
+  <!--Custom Css -->
+  <link href="./CSS/Custom.mini.css" rel="stylesheet" />
+  <link href="./CSS/toastr.mini.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/table-style.mini.css" />
+</head>
+
+<body class="dashboard-page" ng-app="app">
+  <script src="./JS/jquery2.0.3.min.js"></script>
+  <script src="./JS/modernizr.js"></script>
+  <script src="./JS/jquery.cookie.js"></script>
+  <script src="./JS/bootstrap.js"></script>
+  <script src="./js/common-control.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/toastr.js"></script>
+  <script src="./JS/script.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/xlsx.full.min.js"></script>
+  <script src="./js/ods.js"></script>
+
+  <section class="wrapper scrollable">
+
+    <section class="title-bar">
+      <div class="logo">
+        <a href="#!"><img src="./IMG/logo.png" width="159px" alt="logo" /></a>
+      </div>
+      <nav class="main-menu">
+        <div id='cssmenu'>
+          <ul id="list">
+            <li id="liDashbord_eway">
+
+              <a href="#!">
+
+                <span class="nav-text">
+                  Dashboard
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+            </li>
+
+            <li id="liManageCompany_eway">
+              <a href="javascript:;">
+                <span class="nav-text">
+                  Masters
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li><a class="subnav-text" href="#!">Company List</a></li>
+                <li><a class="subnav-text" href="#!">Branch List</a></li>
+                <li><a class="subnav-text" href="#!">Manage User</a></li>
+                <li><a class="subnav-text" href="#!">Master Report</a></li>
+              </ul>
+            </li>
+
+            <li id="liManageVendor_eway" style="display:none">
+              <a href="#!">
+                <span class="nav-text">
+                  Manage Vendor
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li><a class="subnav-text">GSTIN (GSTIN Registration) </a></li>
+              </ul>
+            </li>
+            <li id="liMasterEntry_eway">
+              <a href="#!" download="User Manual">
+                <span class="nav-text">
+                  User Manual
+                </span>
+              </a>
+            </li>
+
+            <li id="liUserWiseE-InvoiceReport_eway">
+              <a class="subnav-text" href="#!">E-Invoice Gen. Report</a>
+            </li>
+
+          </ul>
+        </div>
+
+      </nav>
+      <div class="header-right">
+        <div class="profile_details_left">
+          <div class="header-right-left">
+            <!--USER NAME -->
+            <ul class="nofitications-dropdown">
+              <!--GST Portal Login -->
+
+              <li class="dropdown head-dpdn" style="display:none;">
+                <a href="#!" target="_blank">Login to E-WayBill portal</a> &nbsp; | &nbsp;
+              </li>
+              <li class="dropdown head-dpdn">
+                <span><a href="#!" class="">Welcome ravindra</a></span>
+              </li>
+            </ul>
+            <div class="clearfix"> </div>
+          </div>
+          <div class="profile_details">
+            <ul>
+              <li class="dropdown profile_details_drop">
+                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <div class="profile_img">
+                    <span class="prfil-img"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <div class="clearfix"></div>
+                  </div>
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                  <li> <a href="#!"><i class="fa fa-user"></i> Profile</a> </li>
+                  <li> <a href="#!"><i class="fa fa-key"></i> Change Password</a> </li>
+                  <li> <a href="#!"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+
+      </div>
+      <div class="clearfix"> </div>
+    </section>
+
+    <div class="col-sm-6 col-md-6 breadcrumb">
+
+
+    </div>
+
+    <div class="main-grid">
+      <div class="agile-grids">
+        <!-- begin olark code -->
+
+
+        <div id="CompanyASKeyPopup"
+          style="z-index: 20; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important;">
+          <div class="popup">
+            <a class="close" onclick="CompanyASKeyPopupHide();">&times;</a>
+            <div class="popup-heading" style="margin-bottom: 0;">
+              <h4>API Credential</h4>
+            </div>
+
+
+            <div class="content">
+              <div class="form-group">
+                <label>MVApiKey</label><span style="color:red">*</span>
+                <input type="text" class="form-control" id="txtMVApiKey" placeholder="" required="" value='' disabled>
+                <label style="padding-top: 15px;">MVSecretKey</label><span style="color:red">*</span>
+                <input type="text" class="form-control" id="txtMVSecretKey" placeholder="" required="" value=''
+                  disabled>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="clearfix"></div>
+
+
+        <div class="container-fluid">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="panel panel-info mtop10">
+                <div class="panel-heading clearfix">
+                  <div class="pull-right">
+                    <!-- <button type="button" class="btn btn-info btn-sm" value="Create Company">
+                      <i class="fa fa-plus-circle fa-lg"></i> Create Company
+                    </button> -->
+                    <button type="button" class="btn bg-darkblue btn-sm" value="Create Branch">
+                      <i class="fa fa-plus-circle fa-lg"></i> Create Branch
+                    </button>
+                    <button type="button" class="btn bg-bluedark btn-sm text-white" title="Excel template"
+                      value="Download E-Way Bill Template">
+                      <i class="fa fa-download fa-lg"></i>
+                      Company Master Template
+                    </button>
+                    <input type="hidden" id="hdnImportFile" value="ImpE-InvoiceCompany" />
+                    <nav id="my_menu_wrap" class="pull-right-eWay">
+                      <ul>
+                        <li>
+                          <form action="#"> <a href="#"><i
+                                class="fa fa-rotate-90 fa-external-link fa-lg"></i>&nbsp;&nbsp;Import Data</a>
+                            <input class="btn btn-info" name="eWayBillCompanyExcel" id="eWayBillCompanyExcel"
+                              type="file" accept=".xls,.xlsx,.xlsm" fileread="" opts="gridOptions" multiple="false"
+                              style="visibility: hidden;" />
+                            <input type="submit" name="SubmiteWayBillExcel" value="SubmitGSTR1Excel"
+                              id="SubmiteWayBillExcel" style="visibility: hidden;" />
+                          </form>
+                        </li>
+                      </ul>
+                    </nav>
+
+                    <button type="button" class="btn bg-darkblue btn-sm" id="btnExport" value="Export To Excel">
+                      <i class="fa fa-external-link fa-lg"></i> Export To Excel
+                    </button> &nbsp;
+                  </div>
+                  <h4 class="panel-title">List of company</h4>
+                  <input type="text" id="txtSearch" class="form-control serchbox" placeholder="Search for company.." />
+                </div>
+                <input type="hidden" id="hdnCompanyID" />
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                  <div class="table-responsive">
+                    <table id="tblCompany">
+                      <thead>
+                        <tr>
+                          <th id="thCompanyName" class="content">Company Name</th>
+                          <th id="thBranchName" class="content">Branch Name</th>
+                          <th id="thTradeName" class="content">Trade name</th>
+                          <th id="thGroupName" class="content">Group Name</th>
+                          <th id="thTypesofcompany" class="content">Types Of Company</th>
+                          <th id="thGSTIN" class="content">GSTIN</th>
+                          <th id="thPin" class="content">Pincode</th>
+                          <th id="thCity" class="content">city</th>
+                          <th id="thState" class="content">State</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="content">
+
+                            <a style="cursor:pointer;" href="./einvoiceformList.html">Microvista (GSP)</a>
+                          </td>
+                          <td class="content">
+
+                            <a style="cursor:pointer;" href="#!"></a>
+                          </td>
+                          <td class="content">Microvista</td>
+                          <td class="content">Microvista</td>
+                          <td class="content">
+                            Private Limited Company
+                          </td>
+                          <td class="content">
+
+                            <a style="cursor:pointer;" href="#">24AASFM9405H1ZZ</a>
+                          </td>
+                          <td class="content">360450</td>
+                          <td class="content">Ahmedabad</td>
+                          <td class="content">
+                            Gujarat
+                          </td>
+                          <td class="content">
+                            <a href="#!">
+                              <img src="./IMG//edit.png" title="Edit" />
+                            </a>
+                            <a href="#!">
+                              <img src=" ./IMG//delete.png" title="Delete" />
+                            </a>
+
+                            <a>
+                              <img src=" ./IMG//eye.jpg" title="API Detail" />
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="popupSubscribeNow"
+    style="z-index: 11; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+    <div class="popup">
+      <a class="close">&times;</a>
+      <div class="popup-heading">
+        <h4>Subscribe Now</h4>
+      </div>
+      <div class="content">
+        <div class="form-group">
+          <label>Enter Key &nbsp;<span class="at-required-highlight astrick">*</span></label>
+          <input type="text" class="form-control" id="txtEnterKey" placeholder="" required="">
+        </div>
+        <div class="form-group text-center">
+          <input type="submit" class="btn btn-success" value="Continue" />
+          <input type="submit" class="btn btn-danger" value="Cancel" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./JS/bootstrap.js"></script>
+  <!-- input-forms -->
+</body>
+
+</html>

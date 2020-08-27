@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="./IMG/favicon.ico">
+
+  <title>PowerGST</title>
+
+  <!-- bootstrap-css -->
+  <link href="./CSS/bootstrap.mini.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="./CSS/style.css" rel="stylesheet" />
+  <link href="./CSS/EwayBillStyle.mini.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/menustyles.mini.css">
+
+  <!-- font-awesome icons -->
+  <link rel="stylesheet" href="./CSS/font.css">
+  <link href="./CSS/font.mini.css" rel="stylesheet" />
+  <link href="./CSS/font-awesome.mini.css" rel="stylesheet" />
+
+  <link href="./CSS/basictable.mini.css" rel="stylesheet" />
+
+  <!--Custom Css -->
+  <link href="./CSS/Custom.mini.css" rel="stylesheet" />
+  <link href="./CSS/toastr.mini.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/table-style.mini.css" />
+</head>
+
+<body class="dashboard-page" ng-app="app" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+  <script src="./JS/jquery2.0.3.min.js"></script>
+  <script src="./JS/modernizr.js"></script>
+  <script src="./JS/jquery.cookie.js"></script>
+  <script src="./JS/bootstrap.js"></script>
+  <script src="./js/common-control.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/toastr.js"></script>
+  <script src="./JS/script.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/xlsx.full.min.js"></script>
+  <script src="./js/ods.js"></script>
+
+
+
+
+  <section class="wrapper scrollable">
+
+    <section class="title-bar">
+      <div class="logo">
+        <a href="!#"><img src="./IMG/logo.png" width="159px" alt="logo" /></a>
+      </div>
+      <nav class="main-menu">
+        <div id='cssmenu'>
+          <ul id="list">
+            <li id="liDashbord_eway" onclick="functionliID('liDashbord_eway');">
+
+              <a href="#!">
+
+                <span class="nav-text">
+                  Dashboard
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+            </li>
+
+            <li id="liManageCompany_eway">
+              <a href="#!">
+                <span class="nav-text">
+                  Masters
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li onclick="functionliID('liManageCompany_eway');"><a class="subnav-text" href="#!">Company List</a>
+                </li>
+                <li onclick="functionliID('liManageCompany_eway');"><a class="subnav-text" href="#!">Branch List</a>
+                </li>
+                <li onclick="functionliID('liManageCompany_eway');"><a class="subnav-text" href="#!">Manage User</a>
+                </li>
+                <li onclick="functionliID('liManageCompany_eway');" style="display:none"><a class="subnav-text"
+                    href="#!">Master Report</a></li>
+              </ul>
+            </li>
+
+            <li id="liManageVendor_eway" style="display:none">
+              <a href="#!">
+
+                <span class="nav-text">
+                  Manage Vendor
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li onclick="functionliID('liManageVendor_eway');"><a class="subnav-text" href="#!">GSTIN (GSTIN
+                    Registration) </a></li>
+              </ul>
+            </li>
+            <li id="liMasterEntry_eway" onclick="functionliID('liMasterEntry_eway');">
+              <a href="#!">
+
+                <span class="nav-text">
+                  My Masters
+                </span>
+              </a>
+            </li>
+            <li id="liReports_eway">
+              <a href=" #!">
+                <span class="nav-text">
+                  Reports
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li>
+                  <a href=" #!">
+                    <span class="nav-text">
+                      Gov. Reports
+                    </span>
+                  </a>
+                  <ul>
+                    <li class="has-sub">
+                      <a href="#!">
+                        <span class="nav-text">
+                          My E-Invoice Reports
+                        </span>
+                        <i class="icon-angle-down"></i>
+                      </a>
+                      <ul>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">E-Invoice
+                            Generated</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Cancelled
+                            E-Invoices</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-sub">
+                      <a href="#!">
+
+                        <span class="nav-text">
+                          Others E-Invoice Reports
+                        </span>
+                        <i class="icon-angle-down"></i>
+                      </a>
+                      <ul>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Generated by
+                            Others</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Rej. E-Invoices
+                            by Others</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Ass. to me for
+                            Transport</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="has-sub">
+                      <a href="#!">
+
+                        <span class="nav-text">
+                          Summary Reports
+                        </span>
+                        <i class="icon-angle-down"></i>
+                      </a>
+                      <ul>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Datewise
+                            Activities</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Download All
+                            E-Invoice</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href=" #!">
+
+                    <span class="nav-text">
+                      MIS Reports
+                    </span>
+                  </a>
+                  <ul>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Ewaybill Report
+                      </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Pending E-Invoice
+                        to partB Reprot </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Active E-Invoice
+                        Reprot </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Cancelled
+                        E-Invoice Reprot </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Expired E-Invoice
+                        Report </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Consolidated
+                        E-Invoice Report </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Rejected E-Invoice
+                        Report </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li id="liMasterSetting_eway" onclick="functionliID('liMasterSetting_eway');">
+              <a href="#!">
+
+                <span class="nav-text">
+                  Settings
+                </span>
+              </a>
+            </li>
+            <li id="liMasterEntry_eway" onclick="functionliID('liMasterEntry_UserManual');">
+              <a href="#!" download="User Manual">
+                <span class="nav-text">
+                  User Manual
+                </span>
+              </a>
+            </li>
+
+            <li id="liUserWiseE-InvoiceReport_eway" onclick="functionliID('liUserWiseE-InvoiceReport_eway');">
+              <a class="subnav-text" href="#!">E-Invoice Gen. Report</a>
+            </li>
+
+          </ul>
+        </div>
+
+      </nav>
+      <div class="header-right">
+        <div class="profile_details_left">
+          <div class="header-right-left">
+            <!--USER NAME -->
+            <ul class="nofitications-dropdown">
+              <!--GST Portal Login -->
+
+              <li class="dropdown head-dpdn" style="display:none;">
+                <a href="#!" target="_blank">Login to E-Invoice portal</a> &nbsp; | &nbsp;
+              </li>
+              <li class="dropdown head-dpdn">
+                <span><a href="#" class="">Welcome ravindra</a></span>
+              </li>
+            </ul>
+            <div class="clearfix"> </div>
+          </div>
+          <div class="profile_details">
+            <ul>
+              <li class="dropdown profile_details_drop">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <div class="profile_img">
+                    <span class="prfil-img"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <div class="clearfix"></div>
+                  </div>
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                  <li> <a href="#!"><i class="fa fa-user"></i> Profile</a> </li>
+                  <li> <a href="#!"><i class="fa fa-key"></i> Change Password</a> </li>
+                  <li> <a href="./Login.html"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+
+      </div>
+      <div class="clearfix"> </div>
+    </section>
+
+    <div class="col-sm-6 col-md-6 breadcrumb">
+
+      <ul>
+        <li>
+
+
+          <a href="/EwayBillUser/CompanyList" title="Dashboard"
+            style="text-align: center; min-width: 85px;">Dashboard</a>
+
+          ;
+        </li>
+        <li>
+
+
+          <a href="#" style="text-align: center; min-width: 85px;">Company Dashboard</a>
+
+          ;
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="main-grid">
+      <div class="agile-grids">
+
+
+        <link href="./css/EwayCompanyDashboard.mini.css" rel="stylesheet">
+        <link href="./css/table-style.mini.css" rel="stylesheet">
+        <script>
+          function Redirect() {
+            //$(document).ready(function () {
+            if ('False' == 'True') {
+              window.location.assign("/EwayBillConsolidated/ConsolidatedEWBList");
+              //return;
+            } else {
+              window.location.assign("/EwayBillMaster/ewaybillentryformList");
+              //return;
+            }
+            //});
+          }
+        </script>
+        <script type="text/javascript">
+          function ShowViewDataPopUp_ActiveEWBLst() {
+            $("#getViewDataPopUp_ActiveEWBLst").show();
+          }
+
+          function ShowViewDataPopUp_EWBExpireLst() {
+            $("#getViewDataPopUp_EWBExpireLst").show();
+          }
+
+          function ShowViewDataPopUp_EWBPendingLst() {
+            $("#getViewDataPopUp_EWBPendingLst").show();
+          }
+
+          function ShowViewDataPopUp_EWBWithin24CancelLst() {
+            $("#getViewDataPopUp_EWBWithin24CancelLst").show();
+          }
+
+          function HideViewDataPopUp_ActiveEWBLst() {
+            $("#getViewDataPopUp_ActiveEWBLst").hide();
+          }
+
+          function HideViewDataPopUp_EWBExpireLst() {
+            $("#getViewDataPopUp_EWBExpireLst").hide();
+          }
+
+          function HideViewDataPopUp_EWBPendingLst() {
+            $("#getViewDataPopUp_EWBPendingLst").hide();
+          }
+
+          function HideViewDataPopUp_EWBWithin24CancelLst() {
+            $("#getViewDataPopUp_EWBWithin24CancelLst").hide();
+          }
+
+          function ExportToExcelInfo(Id, FileName) {
+            var tab_text = "<table border='2px'><tr>";
+            var textRange;
+            var j = 0;
+            var sa;
+            tab = document.getElementById(Id);
+            var headerRow = $('[id*=' + Id + '] tr:first');
+            tab_text += headerRow.html() + '</tr><tr>';
+            var rows = $('[id*=' + Id + '] tr:not(:has(th))');
+            for (j = 0; j < rows.length; j++) {
+              if ($(rows[j]).css('display') != 'none') {
+
+                tab_text = tab_text + rows[j].innerHTML + "</tr>";
+              }
+            }
+            tab_text = tab_text + "</table>";
+            tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
+            tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+            tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE ");
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
+            {
+              txtArea1.document.open("txt/html", "replace");
+              txtArea1.document.write(tab_text);
+              txtArea1.document.close();
+              txtArea1.focus();
+              sa = txtArea1.document.execCommand("SaveAs", true, FileName + ".xlsx");
+            } else { //other browser not tested on IE 11
+              //name = 'eWayBill_ErrorInfo' + '.xls';
+              name = FileName + '.xls';
+              var a = document.createElement("a");
+              var file = new Blob([tab_text], {
+                type: type
+              });
+              a.href = URL.createObjectURL(file);
+              a.download = name;
+              a.click();
+            }
+
+            return (sa);
+          }
+        </script>
+
+        <div class="container-fluid mtop20">
+
+
+
+
+
+          <div class="row SelComPartial">
+            <div class="my-bg">
+              <div class="col-sm-12">
+                <div class="my-bg text-right">
+                  <h5 class="text-link-blue">
+                    <span>Microvista </span>
+                    <span>&nbsp; | &nbsp; GSTIN:</span>
+                    <span>24AASFM9405H1ZZ</span>
+                    <span>&nbsp; | &nbsp;</span>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="main-grid">
+          <div class="agile-grids">
+            <div class="col-md-12">
+
+              <div class="col-md-3 shadowBox">
+                <div class="row" style="display: flex; align-items: center">
+                  <div class="col-md-2">
+                    <i class="fa fa-file-text-o iconSection" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-md-10">
+                    <h4>
+                      Generate E-invoice
+                    </h4>
+                  </div>
+                </div>
+                <div class="m-t-10">
+                  <p>
+                   
+                  </p>
+                </div>
+                <div class="text-right m-t-10">
+                  <a href="./einvoiceformList.html">
+                    <strong><span>Continue</span> <i class="fa fa-angle-right" aria-hidden="true"></i></strong>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 shadowBox">
+                <div class="row" style="display: flex; align-items: center">
+                  <div class="col-md-2">
+                    <i class="fa fa-file-text-o iconSection" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-md-10">
+                    <h4>
+                      E-Invoicing Report
+                    </h4>
+                  </div>
+                </div>
+                <div class="m-t-10">
+                  <p>
+                    
+                  </p>
+                </div>
+                <div class="text-right m-t-10">
+                  <a href="./einvoiceformList.html">
+                    <strong><span>Continue</span> <i class="fa fa-angle-right" aria-hidden="true"></i></strong>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 shadowBox">
+                <div class="row" style="display: flex; align-items: center">
+                  <div class="col-md-2">
+                    <i class="fa fa-file-text-o iconSection" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-md-10">
+                    <h4>
+                      Reconciliation
+                    </h4>
+                  </div>
+                </div>
+                <div class="m-t-10">
+                  <p>
+                   
+                  </p>
+                </div>
+                <div class="text-right m-t-10">
+                  <a href="./einvoiceformList.html">
+                    <strong><span>Continue</span> <i class="fa fa-angle-right" aria-hidden="true"></i></strong>
+                  </a>
+                </div>
+              </div>
+
+              <!-- <div class="col-md-3 bg-bluedark">
+                        <div>
+                            <a href="./einvoiceformList.html">
+                                <h2>
+                                    e-waybill
+                                </h2>                                
+                            </a><br>
+                        </div>
+                        <div class="box-bottom">
+                            <a href="./einvoiceformList.html" style="text-decoration:underline">Click here</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 bg-bluedark">
+                      <div>
+                          <a href="./einvoiceformList.html">
+                              <h2>
+                                  e-waybill
+                              </h2>                                
+                          </a><br>
+                      </div>
+                      <div class="box-bottom">
+                          <a href="./einvoiceformList.html" style="text-decoration:underline">Click here</a>
+                      </div>
+                  </div> -->
+
+            </div>
+          </div>
+          <!--End agile-grids-->
+        </div>
+
+        <div id="getViewDataPopUp_ActiveEWBLst"
+          style="z-index: 20; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important;">
+          <div class="popup wth-90">
+            <a class="close" onclick="HideViewDataPopUp_ActiveEWBLst();">×</a>
+            <div class="popup-heading" style="margin-bottom: 0;">
+              <h4 id="headerActiveEWB">Generated EWB List</h4>
+            </div>
+            <div class="popup-export-excel-button">
+              <button type="button" class="btn bg-warning"
+                onclick="ExportToExcelInfo('table_Active', 'ActiveEWB_Generated')" value="Export To Excel">
+                <img src="./images/xls-excel.png">
+                Export To Excel
+              </button>
+            </div>
+            <div class="panel-wrapper collapse in" aria-expanded="true" id="dvBox"
+              style="max-height:450px; overflow:auto;">
+              <table border="1" id="table_Active"
+                style="color:#000; width:100%; border-collapse:collapse; margin-bottom:5px;">
+                <tbody>
+                  <tr>
+                    <th>No Record Found</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="getViewDataPopUp_EWBExpireLst"
+          style="z-index: 20; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+          <div class="popup wth-90">
+            <a class="close" onclick="HideViewDataPopUp_EWBExpireLst();">×</a>
+            <div class="popup-heading" style="margin-bottom: 0;">
+              <h4 id="headerActiveEWB">EWB Expire in Next 24Hr</h4>
+            </div>
+            <div class="popup-export-excel-button">
+              <button type="button" class="btn bg-warning" onclick="ExportToExcelInfo('table_Expire', 'EWB_Expire24Hr')"
+                value="Export To Excel">
+                <img src="./images/xls-excel.png">
+                Export To Excel
+              </button>
+            </div>
+            <div class="panel-wrapper collapse in" aria-expanded="true" id="dvBox"
+              style="max-height:450px; overflow:auto;">
+              <table border="1" id="table_Expire"
+                style="color:#000; width:100%; border-collapse:collapse; margin-bottom:5px;">
+                <tbody>
+                  <tr>
+                    <th>No Record Found</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="getViewDataPopUp_EWBPendingLst"
+          style="z-index: 20; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+          <div class="popup wth-90">
+            <a class="close" onclick="HideViewDataPopUp_EWBPendingLst();">×</a>
+            <div class="popup-heading" style="margin-bottom: 0;">
+              <h4 id="headerActiveEWB">EWB Part-B Pending List</h4>
+            </div>
+            <div class="popup-export-excel-button">
+              <button type="button" class="btn bg-warning"
+                onclick="ExportToExcelInfo('table_Pending', 'EWBPartB_Pending')" value="Export To Excel">
+                <img src="./images/xls-excel.png">
+                Export To Excel
+              </button>
+            </div>
+            <div class="panel-wrapper collapse in" aria-expanded="true" id="dvBox"
+              style="max-height:450px; overflow:auto;">
+              <table border="1" id="table_Pending"
+                style="color:#000; width:100%; border-collapse:collapse; margin-bottom:5px;">
+                <tbody>
+                  <tr>
+                    <th>No Record Found</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="getViewDataPopUp_EWBWithin24CancelLst"
+          style="z-index: 20; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+          <div class="popup" style="width: 90%;">
+            <a class="close" onclick="HideViewDataPopUp_EWBWithin24CancelLst();">×</a>
+            <div class="popup-heading" style="margin-bottom: 0;">
+              <h4 id="headerActiveEWB">EWB Generated within 24Hr Which may be cancel</h4>
+            </div>
+            <div class="popup-export-excel-button">
+              <button type="button" class="btn bg-warning"
+                onclick="ExportToExcelInfo('table_cancel', 'EWBCancel_Within24Hr')" value="Export To Excel">
+                <img src="./images/xls-excel.png">
+                Export To Excel
+              </button>
+            </div>
+            <div class="panel-wrapper collapse in" aria-expanded="true" id="dvBox"
+              style="max-height:450px; overflow:auto;">
+              <table border="1" id="table_cancel"
+                style="color:#000; width:100%; border-collapse:collapse; margin-bottom:5px;">
+                <tbody>
+                  <tr>
+                    <th>No Record Found</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <div id="popupSubscribeNow"
+    style="z-index: 11; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+    <div class="popup">
+      <a class="close" onclick="SubscribeNowPopUpHide();">×</a>
+      <div class="popup-heading">
+        <h4>Subscribe Now</h4>
+      </div>
+      <div class="content">
+        <div class="form-group">
+          <label>Enter Key &nbsp;<span class="at-required-highlight astrick">*</span></label>
+          <input type="text" class="form-control" id="txtEnterKey" placeholder="" required="">
+        </div>
+        <div class="form-group text-center">
+          <input type="submit" onclick="SubscribeNow();" class="btn btn-success" value="Continue">
+          <input type="submit" class="btn btn-danger" onclick="SubscribeNowPopUpHide();" value="Cancel">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/bootstrap.js"></script>
+  <!-- input-forms -->
+  <script src="./js/valida.2.1.6.min.js"></script>
+
+
+  <!-- //input-forms -->
+
+  <script src="./js/validator.min.js"></script>
+
+  <!--//validator js-->
+
+  <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+            top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+            opacity: .8; filter: alpha(opacity=70);display:none">
+    <p style="position: absolute; top: 30%; left: 45%; color: White;">
+      Loading, please wait...
+    </p>
+    <p style="position: absolute; top: 30%; left: 43%; color: White;margin:2%;">
+      <img src="./IMG/eWay_Loader.gif">
+    </p>
+  </div>
+
+
+</body>
+
+</html>

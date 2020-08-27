@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="./IMG/favicon.ico">
+
+  <title>PowerGST</title>
+
+  <!-- bootstrap-css -->
+  <link href="./CSS/bootstrap.mini.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="./CSS/style.css" rel="stylesheet" />
+  <link href="./CSS/EwayBillStyle.mini.css" rel="stylesheet" />
+
+  <!-- font-awesome icons -->
+  <link href="./CSS/font.mini.css" rel="stylesheet" />
+  <link href="./CSS/font-awesome.mini.css" rel="stylesheet" />
+
+  <link href="./CSS/basictable.mini.css" rel="stylesheet" />
+
+  <!--Custom Css -->
+  <link href="./CSS/Custom.mini.css" rel="stylesheet" />
+  <link href="./CSS/toastr.mini.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/menustyles.mini.css" />
+  <link rel="stylesheet" href="./CSS/table-style.mini.css">
+
+  <script>
+    function loader() {
+      $('#divLoading').fadeIn("fast", function(){        
+        $("#divLoading").fadeOut(4000);
+    });
+    $("#liImport").removeClass('active');
+    $("#liGenerated").addClass('active');
+    $("#tab1primary").removeClass('active in');
+    $("#tab3primary").addClass('active in');
+    }
+  </script>
+</head>
+
+<body class="dashboard-page" ng-app="app">
+  <script src="./JS/jquery2.0.3.min.js"></script>
+  <script src="./JS/modernizr.js"></script>
+  <script src="./JS/jquery.cookie.js"></script>
+  <script src="./JS/bootstrap.js"></script>
+  <script src="/js/common-control.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/Script.Config.js"></script>
+  <script src="/js/toastr.js"></script>
+  <script src="./JS/script.js"></script>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/xlsx.full.min.js"></script>
+  <script src="/js/ods.js"></script>
+
+
+
+  <section class="wrapper scrollable">
+
+    <section class="title-bar">
+      <div class="logo">
+        <a href="!#"><img src="./IMG/logo.png" width="159px" alt="logo" /></a>
+      </div>
+      <nav class="main-menu">
+        <div id='cssmenu'>
+          <ul id="list">
+            <li id="liDashbord_eway" onclick="functionliID('liDashbord_eway');">
+
+              <a href="#!">
+
+                <span class="nav-text">
+                  Dashboard
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+            </li>
+
+            <li id="liManageCompany_eway">
+              <a href="#!">
+                <span class="nav-text">
+                  Masters
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li onclick="functionliID('liManageCompany_eway');"><a class="subnav-text" href="#!">Company List</a>
+                </li>
+                <li onclick="functionliID('liManageCompany_eway');"><a class="subnav-text" href="#!">Branch List</a>
+                </li>
+                <li onclick="functionliID('liManageCompany_eway');"><a class="subnav-text" href="#!">Manage User</a>
+                </li>
+                <li onclick="functionliID('liManageCompany_eway');" style="display:none"><a class="subnav-text"
+                    href="#!">Master Report</a></li>
+              </ul>
+            </li>
+
+            <li id="liManageVendor_eway" style="display:none">
+              <a href="#!">
+
+                <span class="nav-text">
+                  Manage Vendor
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li onclick="functionliID('liManageVendor_eway');"><a class="subnav-text" href="#!">GSTIN (GSTIN
+                    Registration) </a></li>
+              </ul>
+            </li>
+            <li id="liMasterEntry_eway" onclick="functionliID('liMasterEntry_eway');">
+              <a href="#!">
+
+                <span class="nav-text">
+                  My Masters
+                </span>
+              </a>
+            </li>
+            <li id="liReports_eway">
+              <a href=" #!">
+                <span class="nav-text">
+                  Reports
+                </span>
+                <i class="icon-angle-down"></i>
+              </a>
+              <ul>
+                <li>
+                  <a href=" #!">
+                    <span class="nav-text">
+                      Gov. Reports
+                    </span>
+                  </a>
+                  <ul>
+                    <li class="has-sub">
+                      <a href="#!">
+                        <span class="nav-text">
+                          My E-Invoice Reports
+                        </span>
+                        <i class="icon-angle-down"></i>
+                      </a>
+                      <ul>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">E-Invoice
+                            Generated</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Cancelled
+                            E-Invoices</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-sub">
+                      <a href="#!">
+
+                        <span class="nav-text">
+                          Others E-Invoice Reports
+                        </span>
+                        <i class="icon-angle-down"></i>
+                      </a>
+                      <ul>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Generated by
+                            Others</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Rej. E-Invoices
+                            by Others</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Ass. to me for
+                            Transport</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="has-sub">
+                      <a href="#!">
+
+                        <span class="nav-text">
+                          Summary Reports
+                        </span>
+                        <i class="icon-angle-down"></i>
+                      </a>
+                      <ul>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Datewise
+                            Activities</a></li>
+                        <li onclick="functionliID('liReports_eway');"><a class="subnav-text" href="#!">Download All
+                            E-Invoice</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href=" #!">
+
+                    <span class="nav-text">
+                      MIS Reports
+                    </span>
+                  </a>
+                  <ul>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Ewaybill Report
+                      </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Pending E-Invoice
+                        to partB Reprot </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Active E-Invoice
+                        Reprot </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Cancelled
+                        E-Invoice Reprot </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Expired E-Invoice
+                        Report </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Consolidated
+                        E-Invoice Report </a></li>
+                    <li onclick="functionliID('liMSIReports_eway');"><a class="subnav-text" href="#!">Rejected E-Invoice
+                        Report </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li id="liMasterSetting_eway" onclick="functionliID('liMasterSetting_eway');">
+              <a href="#!">
+
+                <span class="nav-text">
+                  Settings
+                </span>
+              </a>
+            </li>
+            <li id="liMasterEntry_eway" onclick="functionliID('liMasterEntry_UserManual');">
+              <a href="#!" download="User Manual">
+                <span class="nav-text">
+                  User Manual
+                </span>
+              </a>
+            </li>
+
+            <li id="liUserWiseE-InvoiceReport_eway" onclick="functionliID('liUserWiseE-InvoiceReport_eway');">
+              <a class="subnav-text" href="#!">E-Invoice Gen. Report</a>
+            </li>
+
+          </ul>
+        </div>
+
+      </nav>
+      <div class="header-right">
+        <div class="profile_details_left">
+          <div class="header-right-left">
+            <!--USER NAME -->
+            <ul class="nofitications-dropdown">
+              <!--GST Portal Login -->
+
+              <li class="dropdown head-dpdn" style="display:none;">
+                <a href="#!" target="_blank">Login to E-Invoice portal</a> &nbsp; | &nbsp;
+              </li>
+              <li class="dropdown head-dpdn">
+                <span><a href="#" class="">Welcome ravindra</a></span>
+              </li>
+            </ul>
+            <div class="clearfix"> </div>
+          </div>
+          <div class="profile_details">
+            <ul>
+              <li class="dropdown profile_details_drop">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <div class="profile_img">
+                    <span class="prfil-img"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <div class="clearfix"></div>
+                  </div>
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                  <li> <a href="#!"><i class="fa fa-user"></i> Profile</a> </li>
+                  <li> <a href="#!"><i class="fa fa-key"></i> Change Password</a> </li>
+                  <li> <a href="./Login.html"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+
+      </div>
+      <div class="clearfix"> </div>
+    </section>
+
+    <div class="col-sm-6 col-md-6 breadcrumb">
+
+      <ul>
+        <li>
+
+          <a href="#!" title="Dashboard" style="text-align: center; min-width: 85px;">Dashboard</a>
+        </li>
+        <li>
+          <a href="#!" title="Company Dashboard" style="text-align: center; min-width: 85px;">Company Dashboard</a>
+        </li>
+        <li>
+          <a href="#" style="text-align: center; min-width: 85px;">e-Invoice</a>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="main-grid">
+      <div class="agile-grids">
+
+
+        <link href="./css/table-style.mini.css" rel="stylesheet" />
+        <!-- CSS Includes -->
+        <link href="./css/flick-jquery-ui.min.css" rel="stylesheet" />
+        <!-- JS includes -->
+
+        <script src="./JS/jquery.min.js"></script>
+
+        <script src="./JS/1.10.4-jquery-ui.min.js"></script>
+
+        <style type="text/css">
+          table th,
+          table td {
+            padding: 0px 8px;
+            text-align: left;
+            height: 39px;
+          }
+
+          table tr td {
+            background: none;
+          }
+        </style>
+
+
+        <div class="container-fluid" style="margin-top: 10px;">
+
+
+
+          <html>
+
+          <body>
+            <div class="row SelComPartial wth-50">
+              <div class="my-bg">
+                <div class="col-sm-12">
+                  <div class="my-bg" style="width:100% !important;text-align: right;">
+                    <h5 class="text-link-blue lh-30">
+                      <span>Microvista (GSP) </span>
+                      <span>&nbsp; | &nbsp; GSTIN:</span>
+                      <span>24AASFM9405H1ZZ</span>
+                      <span>&nbsp; | &nbsp;</span>
+                      <select class="form-control hadar-right-select blue semi-square " style="width:17% !important"
+                        id="txtDateYear" onchange="setUploadedFileDate();">
+                        <option selected="selected" value=2019>2019</option>
+                        <option selected="selected" value=2020>2020</option>
+                      </select>
+                      <select class="form-control hadar-right-select blue semi-square wth-20" id="txtDateMonth"
+                        onchange="setUploadedFileDate();">
+                        <option value=01>January</option>
+                        <option value=02>February</option>
+                        <option value=03>March</option>
+                        <option value=04>April</option>
+                        <option value=05>May</option>
+                        <option value=06>June</option>
+                        <option value=07>July</option>
+                        <option value=08>August</option>
+                        <option value=09>September</option>
+                        <option value=10>October</option>
+                        <option value=11>November</option>
+                        <option value=12>December</option>
+                      </select>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </body>
+
+          </html>
+
+        </div>
+
+        <a id="downloadAnchorElem" style="display:none"></a>
+
+
+
+        <div class="col-lg-12  with-nav-tabs mbottom-50">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li id="liImport" onclick="functionliID('aImport');" class="active">
+
+              <a href="#tab1primary" data-toggle="tab" role="tab" id="aImport"><b>Import</b></a>
+            </li>
+            <li id="liSubmitted" role="presentation" style="display:none" onclick="functionliID('aSubmitted');">
+              <a href="#tab2primary" data-toggle="tab" role="tab" id="aSubmitted"><b>Submitted</b></a>
+            </li>
+            <li id="liGenerated" role="presentation">
+              <a href="#tab3primary" data-toggle="tab" role="tab" id="aGenerated"><b>Generated</b></a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="tab1primary">
+              <div class="panel panel-info">
+                <div class="panel-heading clearfix">
+                  <div class="pull-right" style="width:50%">
+
+
+
+                    <button type="button" class="btn btn-sm bg-warning width70 pull-right-eWay"
+                      onclick="ClearAllE-Invoice();" id="btnClearAll" value="Clear E-Invoice"
+                      title="Clear All E-Invoice">
+                      <i class="fa fa-remove fa-lg"></i> ClearAll
+                    </button>
+                    <button type="button" class="btn bg-danger btn-sm width45 pull-right-eWay" onclick="DeleteRecord();"
+                      id="btnDelete" value="Export JSON" title="Delete Selected Record">
+                      <img src=" ./IMG/delete-white.png" />
+                    </button>
+
+
+
+                    <button type="button" class="btn bg-darkblue btn-sm pull-right-eWay"
+                      onclick="CheckDuplicateE-Invoice()" value="Check Duplicate" title="Check Duplicate">
+                      Check Duplicate
+                    </button>
+                    <input type="hidden" id="hdnImportFile" value="ImpGSTR1" />
+                    <nav id="my_menu_wrap" class="pull-right-eWay">
+
+                      <ul>
+                        <li>
+                          <a href="#" class=""><i class="fa fa-rotate-90 fa-external-link fa-lg"></i> Import File</a>
+                          <ul>
+                            <li>
+                              <form action="#!" enctype="multipart/form-data" method="post"> <a href="#"
+                                  onclick="UploadeWayBillExcel('eWayBillUploadedFile');"
+                                  title="Import Data To Power EwayBill"><i
+                                    class="fa fa-file-text-o fa-lg"></i>&nbsp;&nbsp;Excel File</a>
+                                <input class="btn btn-info" name="eWayBillUploadedFile" id="eWayBillUploadedFile"
+                                  type="file" accept=".xls,.xlsx,.xlsm" fileread="" opts="gridOptions" multiple="false"
+                                  style="visibility: hidden;" />
+                                <input type="submit" name="SubmiteWayBillExcel" value="SubmitGSTR1Excel"
+                                  id="SubmiteWayBillExcel" style="visibility: hidden;" />
+                                <input type="text" name="hdnUploadedDate" id="hdnUploadedDate"
+                                  style="visibility: hidden;" />
+                              </form>
+                            </li>
+                            <li>
+                              <form action="#!" enctype="multipart/form-data" method="post"> <a href="#"
+                                  onclick="UploadE-InvoiceGovExcellFile('E-InvoiceGovFile');"
+                                  title="Import Data To Gov. Utility"><i
+                                    class="fa fa-file-text-o fa-lg"></i>&nbsp;&nbsp;Import Gov. Utility</a>
+                                <input class="btn btn-info" name="E-InvoiceGovFile" id="E-InvoiceGovFile" type="file"
+                                  accept=".xls,.xlsx,.xlsm" fileread="" opts="gridOptions" multiple="false"
+                                  style="visibility: hidden;" />
+                                <input type="submit" name="SubmiteE-InvoiceGovFile" value="SubmiteE-InvoiceGovFile"
+                                  id="SubmiteE-InvoiceGovFile" style="visibility: hidden;" />
+                                <input type="text" name="hdnGovUploadedDate" id="hdnGovUploadedDate"
+                                  style="visibility: hidden;" />
+                              </form>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                    <button type="button" class="btn btn-info btn-sm pull-right-eWay" value="Create Company"
+                      title="Create New e-Way Bill" onclick="location.href='#!'">
+
+                      <i class="fa fa-plus-circle fa-lg"></i>
+                      Create New
+                    </button>
+                  </div>
+                  <div class="pull-left">
+                    <h5 class="tab-content-title"> Filter By Status:</h5>
+                    <div style="float:left">
+                      <select class="form-control blue semi-square import-select-box" id="drpImpFilter"
+                        onchange="FilterByStatusImpItemddl($('#txtDateMonth').val() + '-' + $('#txtDateYear').val(),$('#txtSearch').val(),document.getElementById('drpImpFilter').value,document.getElementById('drpImpSearch').value);">
+                        <option value="All">All</option>
+                        <option value="Valid">Valid</option>
+                        <option value="Not Valid">Not Valid</option>
+                        <option value="Failed">Failed</option>
+                        <option value="Duplicate">Duplicate</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="pull-left">
+
+                    <select class="form-control blue semi-square import-select-box" id="drpImpSearch">
+                      <option value="0">Select Column</option>
+                      <option value="DocNo">Doc No</option>
+                      <option value="DocDate">Doc Date</option>
+                      <option value="SupplyType">Supply Type</option>
+                      <option value="SubType">Sub Type</option>
+                      <option value="ToGSTIN">To GSTIN</option>
+                      <option value="ToOtherPartyName">To Name</option>
+                      <option value="ToPlace">To Place</option>
+                      <option value="TransMode">Trans. Mode</option>
+                      <option value="TransName">Trans. Name</option>
+                      <option value="TransID">Trans. ID</option>
+                      <option value="VehicleNo">Vehicle No.</option>
+                      <option value="InsertDate">Creation Date</option>
+                    </select>
+                  </div>
+                  <div class="pull-left">
+                    <input type="text" id="txtSearch" onkeyup="FreeSearch();" class="form-control record-search-box"
+                      viewstatemode="Disabled" placeholder="Search Record..." autocomplete="off" readonly
+                      onfocus="this.removeAttribute('readonly');">
+                  </div>
+                  <div class="pull-left">
+                    <button type="button" class="btn btn-sm bg-yellowgreen width70 Searchbox"
+                      onclick="FilterByStatusImpItem($('#txtDateMonth').val() + '-' + $('#txtDateYear').val(),$('#txtSearch').val(),document.getElementById('drpImpFilter').value,document.getElementById('drpImpSearch').value);"
+                      id="btnSearch" value="Search" title="Search">
+                      <i class="fa fa-search fa-lg"></i> Search
+                    </button>
+                  </div>
+
+                </div>
+
+                <div class="panel-wrapper collapse in" aria-expanded="true" style="margin-top:-10px">
+
+                  <div id="dvPartialEwayBillList">
+                    <div>
+                      <table id="tblEWayBillCreated" class="no-margin">
+                        <thead>
+                          <tr>
+                            <th>
+                              <input type="checkbox" id="cbImported" name="Imported" onclick="selectAllImp(this)"
+                                class="form-control" style="width: 15px; background: none !important;">
+                            </th>
+                            <th id="thStatus" class="content">VALID STATUS</th>
+                            <th id="thDocNo" class="content">DOCUMENT NUMBER</th>
+                            <th id="thDocDate" class="content">DOCUMENT TYPE</th>
+
+                            <th id="thSupplyType" class="content">CATEGORY</th>
+                            <th id="thDocDate" class="content">BUYER GSTIN
+                            </th>
+                            <th id="thSubType" class="content">Legal Name*</th>
+                            <th id="thGSTIN" class="content">Taxable Value</th>
+                            <th id="thname" class="content">IGST</th>
+                            <th class="content">CGST</th>
+                            <th class="content">SGST</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                                style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Valid</td>
+                            <td class="content">MVPL2020AUG01</td>
+                            <td class="content"> INV</td>
+                            <td class="content"> B2B</td>
+                            <td class="content"> 24AAKCM3927B1ZQ
+                            </td>
+                            <td class="content"> Microvista
+                            </td>
+                            <td class="content"> 100,000
+                            </td>
+                            <td class="content"></td>
+                            <td class="content">9000
+                            </td>
+                            <td class="content">9000
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                                style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Valid</td>
+                            <td class="content">MVPL2020AUG02</td>
+                            <td class="content"> INV</td>
+                            <td class="content"> B2B</td>
+                            <td class="content"> 27AAKCM3927B1ZM
+
+                            </td>
+                            <td class="content"> Microvista Mumbai
+
+                            </td>
+                            <td class="content"> 150,000
+
+                            </td>
+                            <td class="content">27000
+                            </td>
+                            <td class="content">
+                            </td>
+                            <td class="content">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                                style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Valid</td>
+                            <td class="content">MVPL2020AUG03</td>
+                            <td class="content"> INV</td>
+                            <td class="content"> B2B</td>
+                            <td class="content"> 24AAKCM3927B1ZA
+
+
+                            </td>
+                            <td class="content"> Microvista Gujarat
+
+
+                            </td>
+                            <td class="content"> 125,000
+
+
+                            </td>
+                            <td class="content">
+                            </td>
+                            <td class="content">11250
+
+                            </td>
+                            <td class="content">11250
+
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                                style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Valid</td>
+                            <td class="content">MVPL2020AUG04
+                            </td>
+                            <td class="content"> INV</td>
+                            <td class="content"> EXWOP
+                            </td>
+                            <td class="content"> URP
+
+
+
+                            </td>
+                            <td class="content"> USA Company
+
+
+
+                            </td>
+                            <td class="content"> 300,000
+
+
+
+                            </td>
+                            <td class="content">
+                            </td>
+                            <td class="content">
+
+                            </td>
+                            <td class="content">
+
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                      <div class="print-button text-center">
+                        <button type="button" class="btn bg-bluedark" id="btnExport" onclick="location.href = '#!';"
+                          title="Excel template" value="Download E-Way Bill Template">
+                          <i class="fa fa-download fa-lg text-white"></i>
+                          E-Invoice Template
+                        </button>
+
+
+                        
+                        <button type="button" class="btn bg-orange" id="btnGenerateE-wayBill"
+                          onclick="loader();" value="Generate E-way Bill"
+                          title="Generate E-way Bill">
+                          <i class="fa fa-external-link fa-lg text-white"></i>
+                          Generate
+                        </button>
+
+                        <!-- <button type="button" class="btn bg-system" id="btnUpdateTransportDetailInternal"
+                          value="Update PART-B" onclick="InternalUpdatePartBPopUpShow();">
+                          <i class="fa fa-upload fa-lg text-white"></i>
+                          Bulk Update PART-B
+                        </button> -->
+                        <!-- <button type="button" class="btn bg-orange" id="btnExport"
+                          onclick="InternalUpdateVehiclePopUpShow();" title="Update Vehicle No#"
+                          value="Update Vehicle No#">
+                          <i class="fa fa-upload fa-lg text-white"></i>
+                          Update Vehicle No#.
+                        </button> -->
+
+
+
+                        <button type="button" class="btn bg-info" onclick="ExportToExcelNew(null)" id="btnExport"
+                          title="Export To Excel" value="Export To Excel">
+                          <img src="./IMG/xls-excel.png">
+                          Export To Excel
+                        </button>
+                        <button type="button" class="btn bg-darkblue" onclick="DownloadJSON();" id="btnJson"
+                          title="Download Json" value="Download Json">
+                          <i class="fa fa-download fa-lg text-white"></i>
+                          Download Json
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab2primary">
+              <div class="panel panel-info">
+                <div class="panel-heading clearfix">
+
+                  <button type="button" class="btn btn-success  btn-sm pull-right">Go</button>
+                  <input type="text" id="txtImpDate" class="form-control pull-right update-stus-btn" />
+
+                  <button type="button" class="btn bg-danger btn-sm width45 pull-right-eWay"
+                    onclick="DeleteAllSubmitted();" id="btnDelete" value="Export JSON" title="Delete Selected Record">
+                    <img src=" ./IMG/delete-white.png" />
+                  </button>
+
+                  <button type="button" class="btn btn-success  btn-sm pull-right-eWay" onclick="FetchItem();">Update
+                    Status</button>
+                  <input type="text" id="txtFetch" class="form-control pull-right update-stus-btn" />
+
+                  <h4 class="panel-title">Submitted Bill List:</h4>
+                  <input type="text" id="txtSearchImported" onkeyup="FreeSearchImported()" class="form-control serchbox"
+                    placeholder="Search Record...">
+                </div>
+
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+
+                  <div id="dvPartialEwayBillImportedList">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab3primary">
+              <div class="panel panel-info">
+                <div class="panel-heading clearfix">
+                  <button type="button" class="btn btn-success  btn-sm pull-right-eWay" onclick="GenFetchItem();"
+                    style="display:none;">Update Status</button>
+                  <input type="text" id="txtGenFetch" class="form-control pull-right update-stus-btn"
+                    style="display: none;" />
+                  <div class="pull-left">
+                    <h5 style="float:left;line-height:34px;"> Filter By Status:</h5>
+                    <div style="float:left">
+                      <select class="form-control blue semi-square" style="width: 100%; height: 30px; margin: -2px;"
+                        id="drpGenFilter"
+                        onchange="FilterByStatusGenItem($('#txtDateMonth').val() + '-' + $('#txtDateYear').val(),$('#txtSearchGenerated').val(),document.getElementById('drpGenFilter').value,document.getElementById('drpGenSearch').value);">
+                        <option value="All">All</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Expired">Expired</option>
+                        <option value="Generated">Generated</option>
+                      </select>
+                    </div>
+                    <div class="pull-left">
+                      <select class="form-control blue semi-square"
+                        style="width: 99%; height: 30px; float: right; margin-top: -2px;" id="drpGenSearch">
+                        <option value="0">Select Column</option>
+                        <option value="EwayBillNo">EwayBill No.</option>
+                        <option value="ValidTillDate">ValidTill Date</option>
+                        <option value="DocNo">Doc No</option>
+                        <option value="DocDate">Doc Date</option>
+                        <option value="SupplyType">Supply Type</option>
+                        <option value="ToGSTIN">To GSTIN</option>
+                        <option value="ToOtherPartyName">To Name</option>
+                        <option value="ToPlace">To Place</option>
+                        <option value="TransName">Trans. Name</option>
+                        <option value="TransID">Trans. ID</option>
+                        <option value="VehicleNo">Vehicle No.</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="pull-left">
+                    <input type="text" id="txtSearchGenerated" onkeyup="FreeSearchGenerated()"
+                      class="form-control SearchGenerated" placeholder="Search Record...">
+                  </div>
+                  <div class="pull-left">
+                    <button type="button" class="btn btn-sm bg-yellowgreen width70"
+                      onclick="FilterByStatusGenItem($('#txtDateMonth').val() + '-' + $('#txtDateYear').val(),$('#txtSearchGenerated').val(),document.getElementById('drpGenFilter').value,document.getElementById('drpGenSearch').value);"
+                      id="btnSearchGen" value="Search" title="Search" style="margin-left: -15px;">
+                      <i class="fa fa-search fa-lg"></i> Search
+                    </button>
+                  </div>
+                  <div class="pull-right">
+                    <button type="button" class="btn bg-info btn-sm pull-right-eWay" onclick="ExportToExcelGen(null)"
+                      id="btnExport" title="Export To Excel" value="Export To Excel">
+                      <img src="./IMG/xls-excel.png" />
+                      Export To Excel
+                    </button>
+                    <nav id="my_menu_wrap" class="pull-right-eWay">
+                      <ul>
+                        <li>
+                          <a href="#" class=""><i class="fa fa-rotate-90 fa-external-link fa-lg"></i> <span
+                              style="padding-left: 1px;">Print</span> </a>
+                          <ul>
+                            <li>
+                              <form action="#!" enctype="multipart/form-data" method="post"> <a href="#"
+                                  onclick="UploadeWayBillExcel('eWayBillUploadedFile');"
+                                  title="Import Data To Power EwayBill"><i
+                                    class="fa fa-file-text-o fa-lg"></i>&nbsp;&nbsp;e-invoice
+                                </a>
+                                <input class="btn btn-info" name="eWayBillUploadedFile" id="eWayBillUploadedFile"
+                                  type="file" accept=".xls,.xlsx,.xlsm" fileread="" opts="gridOptions" multiple="false"
+                                  style="visibility: hidden;" />
+                                <input type="submit" name="SubmiteWayBillExcel" value="SubmitGSTR1Excel"
+                                  id="SubmiteWayBillExcel" style="visibility: hidden;" />
+                                <input type="text" name="hdnUploadedDate" id="hdnUploadedDate"
+                                  style="visibility: hidden;" />
+                              </form>
+                            </li>
+                            <li>
+                              <form action="#!" enctype="multipart/form-data" method="post"> <a href="#"
+                                  onclick="UploadE-InvoiceGovExcellFile('E-InvoiceGovFile');"
+                                  title="Import Data To Gov. Utility"><i
+                                    class="fa fa-file-text-o fa-lg"></i>&nbsp;&nbsp;e-waybill
+                                </a>
+                                <input class="btn btn-info" name="E-InvoiceGovFile" id="E-InvoiceGovFile" type="file"
+                                  accept=".xls,.xlsx,.xlsm" fileread="" opts="gridOptions" multiple="false"
+                                  style="visibility: hidden;" />
+                                <input type="submit" name="SubmiteE-InvoiceGovFile" value="SubmiteE-InvoiceGovFile"
+                                  id="SubmiteE-InvoiceGovFile" style="visibility: hidden;" />
+                                <input type="text" name="hdnGovUploadedDate" id="hdnGovUploadedDate"
+                                  style="visibility: hidden;" />
+                              </form>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                    <button type="button" class="btn btn-info btn-sm pull-right-eWay" value="Create Company"
+                      title="Create New e-Way Bill" onclick="location.href='#!'">
+
+                      <i class="fa fa-plus-circle fa-lg"></i>
+                      Import File
+                    </button>
+
+
+
+                  </div>
+                </div>
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                  <div id="dvPartialEwayBillGeneratedList">
+                    <div class="table-responsive">
+                      <table id="tblEWayBillCreated" class="no-margin">
+                        <thead>
+                          <tr>
+                            <th><input type="checkbox" id="cbImported" name="Imported" onclick="selectAllImp(this)"
+                            class="form-control" style="width: 15px; background: none !important;"></th>
+                            <th id="thStatus" class="content">EINVOICE STATUS
+                            </th>
+                            <th id="thDocNo" class="content">EWAYBILL STATUS
+                            </th>
+                            <th id="thDocDate" class="content">Document number</th>
+                            <th id="thSupplyType" class="content">Document date</th>
+                            <th id="thSubType" class="content">GSTIN Number</th>
+                            <th id="thGSTIN" class="content">Category</th>
+                            <th id="thGSTIN" class="content">Document type</th>
+                            <th id="thGSTIN" class="content">IRN Number</th>
+                            <th id="thGSTIN" class="content">ACK Number</th>
+                            <th id="thGSTIN" class="content">ACK DATE
+                            </th>
+                            <th id="thGSTIN" class="content">Ewaybill no</th>
+                            <th id="thGSTIN" class="content">Ewaybill Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                              style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Generated</td>
+                            <td class="content"> </td>
+                            <td class="content">MVPL2020AUG01</td>
+                            <td class="content"> 8/26/2020</td>
+                            <td class="content">24AAKCM3927B1ZQ</td>
+                            <td class="content"> B2B</td>
+                            <td class="content"> INV</td>
+                            <td class="content">4c232c07ffa380e3b8f9ed7d4cd46c0f3b582f139bde688802d02b48a02fdb31</td>
+                            <td class="content"> 32100007434</td>
+                            <td class="content">8/26/2020</td>
+                            <td class="content"></td>
+                            <td class="content"></td>
+                          </tr>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                              style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Generated</td>
+                            <td class="content">Generated
+                            </td>
+                            <td class="content">MVPL2020AUG02</td>
+                            <td class="content"> 8/26/2020</td>
+                            <td class="content">24AAKCM3927B1ZM</td>
+                            <td class="content"> B2B</td>
+                            <td class="content"> CDR
+                            </td>
+                            <td class="content">7c232c07ffa380e3b8f9ed7d4cd46c0f3b582f139bde688802d02b48a02fdb12
+                            </td>
+                            <td class="content"> 32100007435
+                            </td>
+                            <td class="content">8/26/2020</td>
+                            <td class="content">641211883710
+                            </td>
+                            <td class="content">8/26/2020
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                              style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Generated</td>
+                            <td class="content">Generated
+                            </td>
+                            <td class="content">MVPL2020AUG03</td>
+                            <td class="content"> 8/26/2020</td>
+                            <td class="content">24AAKCM3927B1ZA
+                            </td>
+                            <td class="content"> B2B</td>
+                            <td class="content"> INV
+
+                            </td>
+                            <td class="content">4c232c07ffa380e3b8f9ed7d4cd46c0f4b682f139bde688802d02b48a02fdb23
+
+                            </td>
+                            <td class="content"> 32100007436
+                            </td>
+                            <td class="content">8/26/2020</td>
+                            <td class="content">411211233766
+
+                            </td>
+                            <td class="content">8/26/2020
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> <input type="checkbox" id="IsDelete" class="form-control" name="Imported"
+                              style="width: 15px;" onclick="CheckUncheckHeaderImp();" value="429418"></td>
+                            <td class="content">Generated</td>
+                            <td class="content">
+                            </td>
+                            <td class="content">MVPL2020AUG03</td>
+                            <td class="content"> 8/26/2020</td>
+                            <td class="content">URP
+
+                            </td>
+                            <td class="content"> EXWOP
+
+                            </td>
+                            <td class="content"> INV
+
+                            </td>
+                            <td class="content">4c232c07ffa380e3b8f9ed7d4cd46c0f3b582f139bde688802d02b48a02fdb12
+
+
+                            </td>
+                            <td class="content"> 32100007437
+                            </td>
+                            <td class="content">8/26/2020</td>
+                            <td class="content">
+
+                            </td>
+                            <td class="content">
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row">
+                      <div class="print-button text-center">
+
+
+                        <!-- <button type="button" class="btn bg-orange" onclick="AutomationUpdateTranPopUpShow()"
+                          id="btnUpdateTran" value="Update Transporter" title="Update Transporter">
+                          <i class="fa fa-truck fa-lg"></i>
+                          Update Transporter
+                        </button> -->
+
+                        <!-- <button type="button" class="btn bg-system" id="btnUpdateTransportDetail"
+                          value="Update Transport Detail" onclick="AutomationUpdatePartBPopUpShow();">
+                          <i class="fa fa-upload fa-lg text-white"></i>
+                          Bulk Update Transport Detail
+                        </button> -->
+                        <button type="button" class="btn bg-danger " onclick="AutomationCancelE-InvoicePopUpShow()"
+                          id="btnDelete" value="Cancel" title="Cancel Selected Record">
+                          <i class="fa fa-close fa-lg"></i>
+                          Cancel E-Waybill
+                        </button>
+                        <button type="button" class="btn bg-danger " onclick="AutomationCancelE-InvoicePopUpShow()"
+                          id="btnDelete" value="Cancel" title="Cancel Selected Record">
+                          <i class="fa fa-close fa-lg"></i>
+                          Cancel E-Invoice
+                        </button>
+                        <button type="button" class="btn bg-orange" id="btnExport" onclick="UpdateVehiclePopUpShow();"
+                          title="Update Vehicle No#" value="Update Vehicle No#">
+                          <i class="fa fa-upload fa-lg text-white"></i>
+                          Update Transporter
+                        </button>
+                        <!-- <button style="display:none;" type="button" class="btn bg-yellowgreen" id="btnGenerateE-wayBill"
+                          onclick="AutomationUploadFilePopUpShow_Expire();" value="Generate Expired E-way Bill"
+                          title="Generate Expired E-way Bill">
+                          <i class="fa fa-external-link fa-lg text-white"></i>
+                          RE-Generate E-Invoice
+                        </button> -->
+                        <button type="button" class="btn bg-darkblue" id="btnExport" value="Generated e-Way Bill Print"
+                          title="Print E-Invoice" onclick="EwayBillPrintAll()">
+                          <i class="fa fa-print fa-lg"></i>
+                          Bulk Update Transport Details
+                        </button>
+                        <button type="button" class="btn bg-darkblue" id="btnGenPrint"
+                          onclick="ConsoTPPrintAutomationPopUpShow('tblEWayBillGenerated');"
+                          value="Generated CE-Invoice Print" title="Print E-Invoice">
+                          <i class="fa fa-print fa-lg"></i>
+                          Update Vehicle No#
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="AutomationUploadFilePopup"
+          style="z-index: 20; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+          <div class="popup">
+            <a class="close" onclick="AutomationUploadFilePopUpHide();">&times;</a>
+            <div class="popup-heading" style="margin-bottom: 0;">
+              <h4>Upload File</h4>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+              <span style="font-size: 12px;">(Please, enter your E-Way Bill credentials to upload file)</span>
+            </div>
+            <div class="content">
+              <div class="form-group">
+                <input type="hidden" id="hdnEventValidation" name="eventvalidation" />
+                <input type="hidden" id="hdnViewStateGenerator" name="viewstategenerator" />
+                <input type="hidden" id="hdnViewState" name="ViewState" />
+                <input type="hidden" id="hdnjsonPath" name="jsonPath" />
+                <input type="hidden" id="hdnSiteUrl" name="SiteUrl" />
+                <input type="hidden" id="hdnUploadUrl" name="UploadUrl" />
+                <input type="hidden" id="hdnHiddenField3" name="HiddenField3" />
+                <input type="hidden" id="hdnInsertDate" name="InsertDate" />
+                <label>e-Invoice UserName</label><span style="color:red">*</span>
+                <input type="text" class="form-control" id="txtewayUName_Auto" name="login" placeholder="" required=""
+                  value='MICROVISTA_API_MVP'>
+                <label style="padding-top: 15px;">e-Invoice Password</label><span style="color:red">*</span>
+                <input type="password" class="form-control" id="txtewayPassword_Auto" name="password" placeholder=""
+                  required="" value='microvista@123;'>
+                <span class="fa fa-fw fa-eye field-icon toggle-password" id="ShowPassward"
+                  onmouseover="mouseoverPassword();" onmouseout="mouseoutPassword();"></span>
+                <label style="padding-top: 15px;">Captcha</label><span style="color:red">*</span>
+                <input type="text" class="form-control" id="txtCaptcha" autocomplete="off" name="captcha"
+                  onkeyup="AutomationCaptchaInUpper_E-Invoice();" maxlength="5" />
+                <img id="imgCaptcha" style=" margin: 0; width: 145px; height: 40px;" />
+                <button type="button" class="btn btn-info btn-sm" onclick="RefGenerateCaptcha();" value="RefCaptcha"
+                  id="btnRefCaptchaGen" title="Refresh" tabindex="-1">
+                  <i class="fa fa-refresh fa-lg"></i>
+                </button>
+              </div>
+              <div class="form-group text-center">
+                <input type="submit" onclick="AutomationUpdateEwayBill();" class="btn btn-success" value="Continue" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <style type="text/css">
+          .field-icon {
+            float: right;
+            margin-left: -25px;
+            margin-top: -25px;
+            position: relative;
+            z-index: 2;
+          }
+        </style>
+        <style type="text/css">
+          #ctl00_ContentPlaceHolder1_BulkEwayBills {
+            margin: 0;
+          }
+        </style>
+        <div id="popuperror"
+          style="z-index: 20; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+          <div class="popup">
+            <a class="close" onclick="ErrorPopUpHide();">&times;</a>
+            <div class="popup-heading">
+              <h4>Imported E-Invoice Error List</h4>
+            </div>
+            <div class="content">
+              <div class="form-group">
+                <label id="lblErrorMsg"></label>
+              </div>
+              <div class="form-group text-center">
+                <input type="submit" class="btn btn-danger" onclick="ErrorPopUpHide();" value="Cancel" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="popupSubscribeNow"
+    style="z-index: 11; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.7); display: none !important; ">
+    <div class="popup">
+      <a class="close" onclick="SubscribeNowPopUpHide();">&times;</a>
+      <div class="popup-heading">
+        <h4>Subscribe Now</h4>
+      </div>
+      <div class="content">
+        <div class="form-group">
+          <label>Enter Key &nbsp;<span class="at-required-highlight astrick">*</span></label>
+          <input type="text" class="form-control" id="txtEnterKey" placeholder="" required="">
+        </div>
+        <div class="form-group text-center">
+          <input type="submit" onclick="SubscribeNow();" class="btn btn-success" value="Continue" />
+          <input type="submit" class="btn btn-danger" onclick="SubscribeNowPopUpHide();" value="Cancel" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./JS//bootstrap.js"></script>
+  <!-- input-forms -->
+
+  <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+            top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+            opacity: .8; filter: alpha(opacity=70);display:none">
+    <p style="position: absolute; top: 30%; left: 45%; color: White;">
+      Loading, please wait...
+    </p>
+    <p style="position: absolute; top: 30%; left: 43%; color: White;margin:2%;">
+      <img src="./IMG/eWay_Loader.gif" />
+    </p>
+  </div>
+
+</body>
+
+</html>

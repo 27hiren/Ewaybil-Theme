@@ -1,0 +1,1 @@
+var BaseApiURL = "http://localhost:51222";
